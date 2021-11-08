@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 rtl class="main-heading">{{ 'anms.features.title' | translate }}</h1>
+    </div>
+  </div>
+  <div class="row align-items-end">
+<!--Carousel Wrapper-->
+<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+  <!--First slide-->
+  <mdb-carousel-item>
+    <div class="view w-100">
+      <img class="d-block w-100" src="../../../../assets/images/gallerydh1.jpg"
+           alt="First slide">
+      <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h3 class="h3-responsive">Light mask</h3>
+      <p>First text</p>
+    </div>
+  </mdb-carousel-item>
+  <!--/First slide-->
+  <!--Second slide-->
+  <mdb-carousel-item>
+    <div class="view w-100">
+      <img class="d-block w-100" src="../../../../assets/images/gallerydh2.jpg"
+           alt="Second slide">
+      <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h3 class="h3-responsive">Strong mask</h3>
+      <p>Secondary text</p>
+    </div>
+  </mdb-carousel-item>
+  <!--/Second slide-->
+  <!--Third slide-->
+  <mdb-carousel-item>
+    <div class="view w-100">
+      <img class="d-block w-100" src="../../../../assets/images/gallerydh1.jpg"
+           alt="Third slide">
+      <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h3 class="h3-responsive">Slight mask</h3>
+      <p>Third text</p>
+    </div>
+  </mdb-carousel-item>
+  <!--/Third slide-->
+</mdb-carousel>
+<!--/.Carousel Wrapper-->
+<!--    <div *ngFor="let feature of features" class="col-md-6 col-lg-4" [ngClass]="routeAnimationsElements">
+      <mat-card>
+        <mat-card-title>
+          <code *ngIf="feature.version">{{feature.version}}</code>{{feature.name | translate}}
+        </mat-card-title>
+        <mat-card-subtitle rtl>
+          {{ feature.description | translate }}
+        </mat-card-subtitle>
+        <mat-card-actions>
+          <a *ngIf="feature.github" mat-icon-button [href]="feature.github" target="_blank">
+            <fa-icon [icon]="['fab','github']"></fa-icon>
+          </a>
+          <a mat-button [href]="feature.documentation" target="_blank">
+            <fa-icon icon="book"></fa-icon>{{ 'anms.features.documentation' | translate }}
+          </a>
+          <a *ngIf="feature.medium" mat-button [href]="feature.medium" target="_blank">
+            <fa-icon [icon]="['fab','medium-m']"></fa-icon>{{ 'anms.features.guide' | translate }}
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>-->
+  </div>
+</div>

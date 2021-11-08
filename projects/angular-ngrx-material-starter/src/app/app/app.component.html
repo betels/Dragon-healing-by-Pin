@@ -1,0 +1,256 @@
+<div [class]="'theme-wrapper ' + (theme$ | async)">
+
+  <mat-sidenav-container>
+
+    <mat-sidenav #sidenav mode="push">
+      <div class="branding"><img [src]="logo" />
+        <span>{{ 'anms.title.short' | translate}}</span></div>
+      <mat-nav-list>
+        <a mat-list-item *ngFor="let item of navigationSideMenu" (click)="sidenav.close()" [routerLink]="[item.link]" routerLinkActive="active">
+          {{item.label | translate}}
+        </a>
+        <!--  <a mat-list-item href="https://github.com/tomastrajan/angular-ngrx-material-starter" target="_blank">
+          Github
+        </a>-->
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <div class="wrapper">
+
+      <div class="toolbar" [style.position]="(stickyHeader$ | async) ? 'fixed' : 'inherit'" [class.mat-elevation-z4]="(stickyHeader$ | async)">
+        <mat-toolbar color="primary">
+          <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
+            <fa-icon icon="bars"></fa-icon>
+
+          </button>
+
+          <span routerLink="" class="branding spacer center d-inline d-sm-none">
+            <img [src]="logo" /></span>
+          <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo" /> {{
+            'anms.title.short' | translate }}</span>
+          <span routerLink="" class="header branding spacer d-none d-md-inline"><img [src]="logo" />
+            <span class="branding"> {{ 'anms.title.long' | translate
+            }} </span> 
+          <span class="branding">{{ 'anms.title.long2' | translate
+            }}</span>
+          <!--{{ 'anms.title.long3' | translate}}-->
+          </span>
+
+
+          <span class="d-none d-md-inline">
+            <button mat-button class="nav-button" *ngFor="let item of navigation" [routerLink]="[item.link]"
+              routerLinkActive="active">
+              {{item.label | translate}}
+            </button>
+          </span>
+
+
+
+
+          <!--      <button mat-button mat-stroked-button color="accent" *ngIf="!(isAuthenticated$ | async)" (click)="onLoginClick()">
+            {{ 'anms.menu.login' | translate }}
+          </button>
+
+          <button *ngIf="(isAuthenticated$ | async)"
+                  mat-icon-button
+                  [matMenuTriggerFor]="toolbarUserMenu">
+            <fa-icon icon="user-circle"></fa-icon>
+          </button>-->
+          <!--   <mat-menu #toolbarUserMenu="matMenu">
+            <button mat-menu-item (click)="onLogoutClick()">
+              <mat-icon><fa-icon icon="power-off"></fa-icon></mat-icon>
+              <span>{{ 'anms.menu.logout' | translate }}</span>
+            </button>
+          </mat-menu>-->
+
+          <!--<button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
+            <fa-icon icon="cog"></fa-icon>
+          </button>-->
+
+          <!--<a [matTooltip]="'anms.header.github' | translate"
+             matTooltipPosition="before"
+             mat-icon-button
+             class="link d-none d-sm-inline"
+             href="https://github.com/tomastrajan/angular-ngrx-material-starter"
+             target="_blank">
+            <fa-icon [icon]="['fab','github']"></fa-icon>
+          </a>-->
+
+          <span *ngIf="language$ | async as language">
+            <mat-select [ngModel]="language" (selectionChange)="onLanguageSelect($event)">
+              <mat-option *ngFor="let l of languages" [value]="l">
+                {{ l.toUpperCase() }}
+              </mat-option>
+            </mat-select>
+          </span>
+
+        </mat-toolbar>
+
+      </div>
+
+
+
+      <div class="content" [@routeAnimations]="o.isActivated && o.activatedRoute.routeConfig.data && o.activatedRoute.routeConfig.data.title">
+        <div class="top-sidebar-item col-md-12">
+          <ul id="menu-menu-top" class="menu">
+            <li id="menu-item-4804" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4804 menu-item-custom-type- tel-lms menu-item-custom-spacing"
+              style="margin-left: 0px; margin-right: 0px">
+              <a href="tel:079 387 6127" style="background-color: #020101;color:white;padding: 10px;position: relative;">
+                <fa-icon [icon]="['fas', 'phone']"></fa-icon>&nbsp;&nbsp;<span>079 387 6127</span></a>
+            </li>
+            <li id="menu-item-4803" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2800 current_page_item menu-item-4803 menu-item-custom-type- book-lms">
+              <a class="actions-main" color="" routerLink="../settings" [ngClass]="routeAnimationsElements" style="background-color: #b39561!important;color:white;padding: 10px;"><span>BOOK AN APPOINTMENT</span></a></li>
+          </ul>
+          <!--       <a  class="actions-main" color="" routerLink="../settings" [ngClass]="routeAnimationsElements" style="background-color: #b39561!important;color:white;">
+          {{ 'anms.settings.title' | translate }}
+        </a> -->
+        </div>
+        <router-outlet #o="outlet"></router-outlet>
+
+      </div>
+      <div style="text-align: center" class="bt-row">
+        <div class="footer-sidebar-item bt-col-3 fw-sidebar-content-align-center ">
+          <aside id="media_image-2" class="widget widget_media_image">
+            <h2>{{ 'anms.title.long' | translate }}</h2>
+            <hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+          </aside>
+          <aside id="custom_html-2" class="widget_text widget widget_custom_html">
+            <div class="textwidget custom-html-widget"><br> <span>Medical Massage</span>
+              <span> &Traditional </span> content...........
+            </div>
+          </aside>
+        </div>
+        <div class="footer-sidebar-item bt-col-3 fw-sidebar-content-align-left ">
+          <aside id="custom_html-6" class="widget_text widget widget_custom_html">
+            <h2 class="widget-title"><span> SERVICES</span></h2>
+            <hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+            <div class="textwidget custom-html-widget">
+              <ul class="link-ms">
+                <li>
+                  <a href="#!" class="helpful-ms">
+                    <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>Body Massage</a>
+                </li>
+                <li>
+                  <a href="#!" class="helpful-ms">
+                    <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>Cambodian Massage</a>
+                </li>
+                <li>
+                  <a href="#!" class="helpful-ms">
+                    <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon> Massage</a>
+                </li>
+                <li>
+                  <a href="#!" class="helpful-ms">
+                    <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>Traditional Massage</a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+        <div class="footer-sidebar-item bt-col-3 fw-sidebar-content-align-left ">
+          <aside id="custom_html-7" class="widget_text widget widget_custom_html">
+            <h2 class="widget-title"><span>Opening Times</span></h2>
+            <hr style=" border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+            <div class="textwidget custom-html-widget">
+              <ul class="bt-social-ms">
+                <li class="social-ms"> Monday & Friday</li>
+                <li class="social-ms"> 10.00 to 17.00 </li>
+                <li class="social-ms"> </li>
+
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+
+
+      <div class="container details">
+        <hr style="  height: 5px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px;color: #b39561;">
+        <div class="row details">
+          <div class="col">
+            <div class="icon-wrap">
+              <div class="type-icon"><span style="color: #ffffff;"><fa-icon [icon]="['fas', 'home']"></fa-icon> </span> </div>
+            </div>
+            <div class="entry-box-wrap">
+              <h4 class="featured-box-title" style="color: #222222;">Address</h4>
+              <div class="featured-.box-text" style="color: #444444;">
+                Dragon Healing <br/> Dufourstrasse 31 <br/> 8008 Zürich
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="icon-wrap">
+              <div class="type-icon graphic-shape-circle" style="width: 70px;height: 70px;background-color: #b39561;border-radius: 100%;"><span style="color: #ffffff"><fa-icon [icon]="['fas', 'phone']"></fa-icon> </span> </div>
+            </div>
+            <div class="entry-box-wrap">
+              <h4 class="featured-box-title" style="color: #222222;">Phone No</h4>
+              <div class="featured-box-text" style="color: #444444;">079 387 6127</div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="icon-wrap">
+              <div class="type-icon graphic-shape-circle" style="width: 70px;height: 70px;background-color: #b39561;border-radius: 100%;"><span style="color: #ffffff"><fa-icon [icon]="['fas', 'envelope']"></fa-icon> </span> </div>
+            </div>
+            <div class="entry-box-wrap">
+              <h4 class="featured-box-title" style="color: #222222;">Email Address</h4>
+              <div class="featured-box-text" style="color: #444444;">wanheab_pin@gmx.ch</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="row">
+          <div class="col-sm-12 links">
+            <!--<a href="https://www.github.com/tomastrajan" target="_blank">
+              <fa-icon [icon]="['fab','github']"></fa-icon>
+              <span>Github</span>
+            </a>
+            <a href="https://www.medium.com/@tomastrajan" target="_blank">
+              <fa-icon [icon]="['fab','medium-m']"></fa-icon>
+              <span>Medium</span>
+            </a>
+         
+            <a href="https://www.youtube.com/channel/UC7XgRHIVoqnh3U5Vmly9ofQ"
+               target="_blank">
+              <fa-icon [icon]="['fab','youtube']"></fa-icon>
+              <span>Youtube</span>
+            </a>-->
+            <a href="https://www.twitter.com/" target="_blank">
+              <fa-icon [icon]="['fab','twitter']"></fa-icon>
+              <span>Twitter</span>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+              <fa-icon [icon]="['fab','instagram']"></fa-icon>
+              <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+              <fa-icon [icon]="['fab', 'facebook']"></fa-icon>
+              <span>Facebook</span>
+            </a>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 signature">
+            &#169; <span class="year">{{year}}</span> - Dragon healing by pin
+            <br class="d-block d-sm-none">
+            <!--   <a [matTooltip]="'anms.footer.changelog' | translate"
+               matTooltipPosition="before"
+               href="https://github.com/tomastrajan/angular-ngrx-material-starter/blob/master/CHANGELOG.md">
+              <fa-icon icon="rocket"></fa-icon>
+              {{version}} <span *ngIf="!isProd">[{{envName}}]</span>
+            </a>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </mat-sidenav-container>
+
+</div>

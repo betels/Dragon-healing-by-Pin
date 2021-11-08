@@ -1,0 +1,86 @@
+<div class="container">
+
+  <div class="row">
+          <div class="col-md-6">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.4885147961054!2d8.546130615622085!3d47.363383179169176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479aa753ab9aedd9%3A0x820e36a3a5b1adfa!2sDufourstrasse%2031%2C%208008%20Z%C3%BCrich!5e0!3m2!1sen!2sch!4v1583966366916!5m2!1sen!2sch"
+      width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+    <!--    <ng-container *ngIf="todos$ | async as todos">
+      <div class="col-md-6">
+        <h2 class="dotos-title" rtl>
+          <span>{{ 'anms.examples.todos.list' | translate }}</span>
+          <button class="todos-filter" mat-icon-button [matMenuTriggerFor]="todosFilter">
+            <fa-icon icon="filter"></fa-icon>
+          </button>
+          <mat-menu class="todos-filter-menu-overlay" #todosFilter="matMenu" xPosition="before">
+            <button mat-menu-item (click)="onFilterTodos('ALL')" [ngClass]="{ active: todos.filter === 'ALL' }" rtl>
+              <mat-icon>
+                <fa-icon icon="tasks"></fa-icon>
+              </mat-icon>
+              <span>{{ 'anms.examples.todos.filter.all' | translate }}</span>
+            </button>
+            <button mat-menu-item (click)="onFilterTodos('DONE')" [ngClass]="{ active: todos.filter === 'DONE' }">
+              <mat-icon>
+                <fa-icon icon="check"></fa-icon>
+              </mat-icon>
+              <span>{{ 'anms.examples.todos.filter.done' | translate }}</span>
+            </button>
+            <button mat-menu-item (click)="onFilterTodos('ACTIVE')" [ngClass]="{ active: todos.filter === 'ACTIVE' }">
+              <mat-icon>
+                <fa-icon icon="square"></fa-icon>
+              </mat-icon>
+              <span>{{ 'anms.examples.todos.filter.active' | translate }}</span>
+            </button>
+          </mat-menu>
+          <mat-chip-list class="todos-filter-info d-none d-sm-block d-md-none d-lg-block">
+            <mat-chip [disabled]=true [ngPlural]="todos.length">
+              {{ 'anms.examples.todos.filter.description' | translate }}
+              <ng-template ngPluralCase="other">{{ todos.length }} {{ 'anms.examples.todos.filter.items' |
+                translate }}</ng-template>
+              <ng-template ngPluralCase="=1">{{ 'anms.examples.todos.filter.one' | translate }} {{
+                'anms.examples.todos.filter.item' | translate }}</ng-template>
+              <ng-template ngPluralCase="=0">{{ 'anms.examples.todos.filter.none' | translate }} {{
+                'anms.examples.todos.filter.items' | translate }}</ng-template>
+            </mat-chip>
+          </mat-chip-list>
+        </h2>
+        <mat-card *ngFor="let todo of todos" class="todo" [ngClass]="routeAnimationsElements">
+          <mat-checkbox class="todo-done" [checked]="todo.done" (change)="onToggleTodo(todo)"></mat-checkbox>
+          <span class="todo-label" [ngClass]="{ 'todo-label-done': todo.done }" (click)="onToggleTodo(todo)">
+            &nbsp;{{todo.name}}&nbsp;
+          </span>
+        </mat-card>
+        <br>
+        <br>
+      </div>
+  </ng-container>-->
+    <div class="offset-md-1 col-md-5" [ngClass]="routeAnimationsElements" rtl>
+      <!--<h2>{{ 'anms.examples.todos.example' | translate }}</h2>-->
+        <a href="wanheab_pin@gmx.ch" target="_blank">
+             <fa-icon [icon]="['fas', 'map']"></fa-icon>&nbsp;&nbsp;
+              <span>
+        {{ 'anms.examples.todos.text1' | translate }}<br> {{ 'anms.examples.todos.text2' | translate }}<br> {{ 'anms.examples.todos.text3'
+        | translate }}
+      </span>
+            </a>
+        <br/>
+         <br/>
+         <a  href="tel:079 387 6127" target="_blank">
+            <fa-icon [icon]="['fas', 'phone']"></fa-icon>&nbsp;&nbsp;
+              <span>0793876127</span>
+            </a>
+            <br/>
+             <br/>
+             <a href="wanheab_pin@gmx.ch" target="_blank">
+            <fa-icon [icon]="['fas', 'envelope']"></fa-icon>&nbsp;&nbsp;
+              <span>wanheab_pin@gmx.ch</span>
+            </a>
+            
+      <!--
+      <p>{{ 'anms.examples.todos.text6' | translate }}</p>
+       {{ 'anms.examples.todos.text5' | translate }}
+      -->
+      <br>
+    </div>
+  </div>
+
+</div>
